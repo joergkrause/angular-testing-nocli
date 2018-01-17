@@ -1,0 +1,14 @@
+<p>
+  Unsere Daten:
+</p>
+<ul *ngIf="values" #list>
+  <li *ngFor="let item of values">
+    <button class="btn btn-sm btn-info" (click)="select(item)">Auswahl {{ item }}</button>
+  </li>
+</ul>
+<input #phone required />
+<button class="btn btn-sm btn-danger" (click)="showInput(phone.value)">Anzeige</button>
+
+<form novalidate spellcheck="false" >
+  <input type="text" required /> 
+</form>

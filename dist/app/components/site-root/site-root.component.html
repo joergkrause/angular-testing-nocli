@@ -1,0 +1,5 @@
+<h1>Hallo Angular</h1>
+<hs-tabs>
+  <hs-tab *ngFor="let tab of tabsMenu" [title]="tab.title" [path]="tab.path"></hs-tab>
+</hs-tabs>
+<router-outlet></router-outlet>
