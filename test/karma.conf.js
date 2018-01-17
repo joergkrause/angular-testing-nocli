@@ -20,17 +20,25 @@ module.exports = (config) => {
         webpackMiddleware: {
             stats: "error-only"
         },
-        reporters: ["spec"],
+        reporters: ["spec", "html"],
+        htmlReporter: {
+            outputFile: '../dist/test/testresult.html',
+            pageTitle: 'Unit Test Demo',
+            subPageTitle: 'Angular Testing Without CLI',
+            groupSuites: true,
+            useCompactStyle: true,
+            useLegacyStyle: true
+        },
         port: 9876,
         colors: true,
         logLevel: config.LOG_ERROR,
         singleRun: true,
         browsers: ['ChromeHeadlessNoSandbox'],
         customLaunchers: {
-          ChromeHeadlessNoSandbox: {
-            base: 'ChromeHeadless',
-            flags: ['--no-sandbox']
-          }
+            ChromeHeadlessNoSandbox: {
+                base: 'ChromeHeadless',
+                flags: ['--no-sandbox']
+            }
         },
         concurrency: Infinity
     });

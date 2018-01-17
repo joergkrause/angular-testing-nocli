@@ -98,3 +98,7 @@ npm test
 This simply calls Karma.
 
 I'm using a headless Chrome for execution. No visible browser, just output on the command line.
+
+## Code Coverage
+
+I'm using NYC from IstanbulJS. That's nothing special indeed. It's in the test command.

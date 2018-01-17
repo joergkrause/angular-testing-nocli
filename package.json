@@ -1,15 +1,14 @@
 {
-  "name": "hhsued",
-  "version": "0.0.1",
-  "description": "workshop",
-  "main": "index.js",
+  "name": "angular-no-cli",
+  "version": "1.0.0",
+  "description": "workshop and demo software",
   "scripts": {
     "build": "gulp",
     "start": "gulp && npm run serve",
     "serve": "bash -c './node_modules/http-server/bin/http-server ./dist -p 3000 -o'",
-    "test": "karma start ./test/karma.conf.js"
+    "test": "nyc karma start ./test/karma.conf.js"
   },
-  "author": "Ich",
+  "author": "Joerg <IsAGeek> Krause",
   "license": "ISC",
   "dependencies": {
     "@angular/common": "^5.2.0",
@@ -29,14 +28,9 @@
   "devDependencies": {
     "@angular/cli": "^1.6.4",
     "@types/core-js": "^0.9.44",
-    "@types/node": "^9.3.0",
     "@types/jasmine": "^2.8.4",
+    "@types/node": "^9.3.0",
     "@types/webpack-env": "^1.13.3",
-    "jasmine": "^2.8.0",
-    "karma": "^2.0.0",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-jasmine": "^1.1.1",
-    "karma-webpack": "^2.0.9",
     "angular2-template-loader": "^0.6.2",
     "awesome-typescript-loader": "^3.4.1",
     "chrome-launcher": "^0.10.2",
@@ -50,11 +44,39 @@
     "gulp-uglify": "^3.0.0",
     "html-loader": "^0.5.4",
     "http-server": "^0.11.1",
+    "jasmine": "^2.8.0",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-htmlfile-reporter": "^0.3.5",
+    "karma-jasmine": "^1.1.1",
     "karma-spec-reporter": "0.0.32",
+    "karma-webpack": "^2.0.9",
+    "nyc": "^11.4.1",
     "systemjs-builder": "^0.16.12",
     "to-string-loader": "^1.1.5",
+    "ts-node": "^4.1.0",
     "tslint": "^5.9.1",
     "tslint-loader": "^3.5.3",
     "typescript": "^2.5.3"
+  },
+  "nyc": {
+    "include": [
+      "src/*.ts",
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "json",
+      "html"
+    ],
+    "all": true
   }
 }
