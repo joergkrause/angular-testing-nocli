@@ -54,3 +54,4 @@ typings/
 # dotenv environment variables file
 .env
 
+google-chrome-unstable_current_amd64.deb
