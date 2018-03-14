@@ -6,7 +6,7 @@ I have setup this project without the CLI and it's a good example of how to crea
 
 ## Features
 
-This project is justt for learning and demonstration. IT has the following things to show:
+This project is just for learning and demonstration. It has the following things to show:
 
 * A complete build workflow using Gulp 3
   * Setup for debug and development, using SystemJS and single file loading
@@ -23,7 +23,7 @@ As always, pull the packages:
 npm i
 ~~~
 
-It's recommended to have a few things running globally:
+It's recommended to have a few things running **globally** (-g, "http-server" is optional):
 
 ~~~
 npm i webpack http-server gulp -g

@@ -15,11 +15,12 @@ interface Tab {
 })
 export class SiteRoot implements OnInit {
   current: string;
-
+  values: Array<string>;
   tabsMenu: Array<Tab>;
 
   constructor(private router: Router) {
     this.tabsMenu = new Array<Tab>();
+    EmitterService.get(Actions.ALL_USERS).subscribe(data => this.values = data);
   }
 
   ngOnInit(): void {

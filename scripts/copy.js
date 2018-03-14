@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const uglify = require('gulp-uglify');
-const print = require('gulp-print');
+const print = require('gulp-print').default;
 const concat = require('gulp-concat');
 
 require('./make');

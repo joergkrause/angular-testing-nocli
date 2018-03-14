@@ -15,7 +15,6 @@ export class SiteDataComponent implements OnInit {
   values: Array<string>;
 
   constructor(private userService: UserService) {
-    //EmitterService.get(Actions.ALL_USERS).subscribe(data => this.values = data);
    }
 
   ngOnInit() {
