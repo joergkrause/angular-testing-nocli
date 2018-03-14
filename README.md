@@ -11,7 +11,7 @@ This project is just for learning and demonstration. It has the following things
 * A complete build workflow using Gulp 3
   * Setup for debug and development, using SystemJS and single file loading
   * Setup for pre-production to show minified bundles using SystemJS
-* A complete build workflow using WebPack 3
+* A complete build workflow using WebPack 4
   * Setup for pre-production to show minified bundles using WebPack
 * Run unit tests for components and service code using Karma and Jasmine
 
@@ -23,10 +23,14 @@ As always, pull the packages:
 npm i
 ~~~
 
-It's recommended to have a few things running **globally** (-g, "http-server" is optional):
+It's recommended to have a few things running **globally** (-g):
+
+* webpack
+* nyc
+* gulp
 
 ~~~
-npm i webpack http-server gulp -g
+npm i webpack nyc gulp -g
 ~~~
 
 Having this, you can decide to use one version or the other.
@@ -67,20 +71,20 @@ It'a just to use the generator. It's convenient to create new components or pipe
 
 ### Why using SystemJS?
 
-One may ask why the effort usign SystemJS. Is loading each file separately worth the work?
+One may ask why the effort using SystemJS. Is loading each file separately worth the work?
 
 1. Because I can
-2. You have more power in Gulp, even things far beyond standard setups are possibile
-3. The workflow is highly configurable
-4. It's stable. WebPack 3 has still a bunch of serious bugs
-5. It's robust. WebPack cannot pack all crazy constructs TypeScript allows
+2. You have more power in Gulp, even things far beyond standard setups are possible.
+3. The workflow is highly configurable.
+4. It's stable. WebPack has still a bunch of serious bugs and flaws, despite the version.
+5. It's robust. WebPack cannot pack all crazy constructs TypeScript allows.
 
 ### Why using WebPack?
 
 1. It's easier to setup
 2. It's slightly better on optimization
 3. It works well as foundation for Karma (see below)
-4. It's fast, at least a little bit faster than SystemJsBuilder
+4. It's fast, at least a faster than SystemJsBuilder compared to WebPack 4
 
 ## Testing
 

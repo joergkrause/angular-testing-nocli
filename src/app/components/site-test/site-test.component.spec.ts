@@ -24,11 +24,11 @@ describe('SiteTestComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should show "Hallo Test" in paragraph', () => {
+  it('should show "Hello Test" in paragraph', () => {
     let debugElement = fixture.debugElement;
     fixture.detectChanges();
     const para = debugElement.query(By.css('p#test')).nativeElement;
-    expect(para.textContent).toContain('Hallo Test');
+    expect(para.textContent).toContain('Hello Test');
   });
 
 });

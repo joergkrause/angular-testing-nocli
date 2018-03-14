@@ -9,7 +9,7 @@
   "scripts": {
     "build": "gulp",
     "start": "gulp && npm run serve",
-    "webpack": "webpack",
+    "webpack": "gulp clean && webpack",
     "serve": "bash -c './node_modules/http-server/bin/http-server ./dist -p 3000 -o'",
     "test": "nyc karma start ./test/karma.conf.js"
   },
@@ -40,8 +40,10 @@
     "angular2-template-loader": "^0.6.2",
     "awesome-typescript-loader": "^3.5.0",
     "chrome-launcher": "^0.10.2",
+    "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.10",
     "del": "^3.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-print": "^5.0.0",
@@ -63,7 +65,9 @@
     "ts-node": "^5.0.1",
     "tslint": "^5.9.1",
     "tslint-loader": "^3.6.0",
-    "typescript": "2.5.3"
+    "typescript": "2.5.3",
+    "uglifyjs-webpack-plugin": "^1.2.3",
+    "webpack-cli": "^2.0.12"
   },
   "nyc": {
     "include": [

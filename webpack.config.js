@@ -5,11 +5,13 @@ var webpack = require("webpack");
 module.exports = () => {
   return {
     devtool: "source-map",
+    mode: 'production',
+    performance: { hints: false },
     stats: {
       chunks: false,
-      hash: false, 
-      version: false, 
-      timings: false, 
+      hash: false,
+      version: false,
+      timings: false,
       assets: false,
       modules: false
     },
@@ -52,8 +54,9 @@ module.exports = () => {
           test: /\.html$/,
           loader: "html-loader?minimize=false"
         },
-        { test: /\.css$/, 
-          loaders: ['to-string-loader', 'css-loader'] 
+        {
+          test: /\.css$/,
+          loaders: ['to-string-loader', 'css-loader']
         }
       ]
     },
@@ -71,7 +74,17 @@ module.exports = () => {
         { from: "src/index.webpack.html", to: "../dist/index.html" }
       ]),
       new UglifyJsPlugin({
-        parallel: true
+        parallel: true,
+        sourceMap: true,
+        uglifyOptions: {
+          ecma: 6, // specify one of: 5, 6, 7 or 8
+          keep_classnames: false,
+          keep_fnames: false,
+          ie8: false,
+          safari10: false,
+          toplevel: false,
+          warnings: false,
+        }
       })
     ]
   };
