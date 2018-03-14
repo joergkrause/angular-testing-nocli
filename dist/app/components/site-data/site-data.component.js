@@ -16,22 +16,20 @@ var user_service_1 = require("../../services/user.service");
 var SiteDataComponent = /** @class */ (function () {
     function SiteDataComponent(userService) {
         this.userService = userService;
-        //EmitterService.get(Actions.ALL_USERS).subscribe(data => this.values = data);
     }
     SiteDataComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.userService.getUsers().subscribe(function (data) { return _this.values = data; });
+        this.values = this.userService.getUsers(); //.subscribe(data => this.values = data);
     };
     SiteDataComponent.prototype.select = function (item) {
         emitter_service_1.EmitterService.get(Actions.CURRENT_USER).emit(item);
     };
-    SiteDataComponent.prototype.showInput = function (value) {
-        emitter_service_1.EmitterService.get(Actions.CURRENT_USER).emit(value);
+    SiteDataComponent.prototype.showPhone = function (value) {
+        emitter_service_1.EmitterService.get(Actions.SHOW_PHONE).emit(value);
     };
     SiteDataComponent = __decorate([
         core_1.Component({
             selector: 'site-data',
-            template: "<p> Unsere Daten: </p> <ul *ngIf=\"values\" #list> <li *ngFor=\"let item of values\"> <button class=\"btn btn-sm btn-info\" (click)=\"select(item)\">Auswahl {{ item }}</button> </li> </ul> <input #phone required /> <button class=\"btn btn-sm btn-danger\" (click)=\"showInput(phone.value)\">Anzeige</button> <form novalidate spellcheck=\"false\" > <input type=\"text\" required />  </form>",
+            template: "<p> Our Data: </p> <ul *ngIf=\"values\" #list> <li *ngFor=\"let item of values | async\"> <button class=\"btn btn-sm btn-info\" (click)=\"select(item)\">Select {{ item }}</button> </li> </ul> <form novalidate spellcheck=\"false\"> <div class=\"form-group\"> <label>Some Phone Number:</label> <input #phone required type=\"tel\" class=\"form-control\" /> <button type=\"button\" class=\"btn btn-sm btn-danger\" (click)=\"showPhone(phone.value)\">Show Value</button> </div> </form>",
             styles: [""]
         }),
         __metadata("design:paramtypes", [user_service_1.UserService])

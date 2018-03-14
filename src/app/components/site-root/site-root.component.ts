@@ -16,11 +16,13 @@ interface Tab {
 export class SiteRoot implements OnInit {
   current: string;
   values: Array<string>;
+  phone: string;
   tabsMenu: Array<Tab>;
 
   constructor(private router: Router) {
     this.tabsMenu = new Array<Tab>();
-    EmitterService.get(Actions.ALL_USERS).subscribe(data => this.values = data);
+    EmitterService.get(Actions.CURRENT_USER).subscribe(data => this.values = data);
+    EmitterService.get(Actions.SHOW_PHONE).subscribe(data => this.phone = data);
   }
 
   ngOnInit(): void {

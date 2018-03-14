@@ -18,7 +18,7 @@ var SiteTestComponent = /** @class */ (function () {
     SiteTestComponent = __decorate([
         core_1.Component({
             selector: 'site-test',
-            template: "<p id=\"test\">Hallo Test</p> <p>Kein Test</p>",
+            template: "<p id=\"test\">Hello Test</p> <p>No Tests</p>",
             styles: [""]
         }),
         __metadata("design:paramtypes", [])

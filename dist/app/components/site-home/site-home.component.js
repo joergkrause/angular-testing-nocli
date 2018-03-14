@@ -18,7 +18,7 @@ var SiteHomeComponent = /** @class */ (function () {
     SiteHomeComponent = __decorate([
         core_1.Component({
             selector: 'site-home',
-            template: "<h1>Home Page</h1>",
+            template: "<h1>Home Page</h1> <p> This is for demo purpose. It's a setup with unit testing explicitly <b>not</b> using the CLI. </p> ",
             styles: [""]
         }),
         __metadata("design:paramtypes", [])

@@ -1,6 +1,11 @@
 <h1>Hello Angular</h1>
-<div class="alert" *ngClass="{ 'alert-info': values, 'alert-danger': !values }" *ngIf="values else #nouser">
-  The user {{ values }} has been selected.
+<div class="alert" [ngClass]="{ 'alert-info': values, 'alert-danger': !values }">
+  <span *ngIf="values; else nouser">
+    The user {{ values }} has been selected.
+  </span>
+  <span *ngIf="phone">
+    Phone number is {{ phone }}.
+  </span>
 </div>
 <ng-template #nouser>
   No user selected. Please select a user.

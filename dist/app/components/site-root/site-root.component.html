@@ -1,4 +1,15 @@
-<h1>Hallo Angular</h1>
+<h1>Hello Angular</h1>
+<div class="alert" [ngClass]="{ 'alert-info': values, 'alert-danger': !values }">
+  <span *ngIf="values; else nouser">
+    The user {{ values }} has been selected.
+  </span>
+  <span *ngIf="phone">
+    Phone number is {{ phone }}.
+  </span>
+</div>
+<ng-template #nouser>
+  No user selected. Please select a user.
+</ng-template>
 <hs-tabs>
   <hs-tab *ngFor="let tab of tabsMenu" [title]="tab.title" [path]="tab.path"></hs-tab>
 </hs-tabs>

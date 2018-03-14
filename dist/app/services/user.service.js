@@ -20,7 +20,7 @@ var UserService = /** @class */ (function () {
         return this.http.get('/data/user.json');
     };
     UserService.prototype.getUser = function (id) {
-        // 
+        // TODO: add logic
     };
     UserService = __decorate([
         core_1.Injectable(),

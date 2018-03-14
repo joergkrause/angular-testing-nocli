@@ -11,10 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var emitter_service_1 = require("../../services/emitter.service");
+var Actions = require("../../configurations/service.actions");
 var SiteRoot = /** @class */ (function () {
     function SiteRoot(router) {
+        var _this = this;
         this.router = router;
         this.tabsMenu = new Array();
+        emitter_service_1.EmitterService.get(Actions.CURRENT_USER).subscribe(function (data) { return _this.values = data; });
+        emitter_service_1.EmitterService.get(Actions.SHOW_PHONE).subscribe(function (data) { return _this.phone = data; });
     }
     SiteRoot.prototype.ngOnInit = function () {
         var _this = this;
@@ -26,7 +31,7 @@ var SiteRoot = /** @class */ (function () {
     SiteRoot = __decorate([
         core_1.Component({
             selector: 'site-root',
-            template: "<h1>Hallo Angular</h1> <hs-tabs> <hs-tab *ngFor=\"let tab of tabsMenu\" [title]=\"tab.title\" [path]=\"tab.path\"></hs-tab> </hs-tabs> <router-outlet></router-outlet>"
+            template: "<h1>Hello Angular</h1> <div class=\"alert\" [ngClass]=\"{ 'alert-info': values, 'alert-danger': !values }\"> <span *ngIf=\"values; else nouser\"> The user {{ values }} has been selected. </span> <span *ngIf=\"phone\"> Phone number is {{ phone }}. </span> </div> <ng-template #nouser> No user selected. Please select a user. </ng-template> <hs-tabs> <hs-tab *ngFor=\"let tab of tabsMenu\" [title]=\"tab.title\" [path]=\"tab.path\"></hs-tab> </hs-tabs> <router-outlet></router-outlet>"
         }),
         __metadata("design:paramtypes", [router_1.Router])
     ], SiteRoot);
